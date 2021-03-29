@@ -31,4 +31,5 @@ def process(string):
 	return jsonify(ll.check_string(string, wordlist))
 
 if __name__ == "__main__":
-	app.run(host=ip, port=6969)
+	from waitress import serve
+	serve(app, host=ip, port=6969)
