@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+import socket
 
 from LeetLists import LeetLists
 
@@ -14,6 +15,12 @@ except Exception as e:
 for i in range(len(wordlist)):
 	wordlist[i] = wordlist[i].strip()
 
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+ip = str(s.getsockname()[0])
+s.close()
+del s
+
 @app.route("/")
 def sixtyNine():
 	return "Sex."
@@ -24,4 +31,4 @@ def process(string):
 	return jsonify(ll.check_string(string, wordlist))
 
 if __name__ == "__main__":
-	app.run(port=6969)
+	app.run(host=ip, port=6969)
