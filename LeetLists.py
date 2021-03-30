@@ -62,8 +62,9 @@ class LeetLists:
 						if sl[stringIndex] in self.maps[mi]:
 							placeholder = sl[stringIndex]
 							sl[stringIndex] = self.maps[mi].get(sl[stringIndex])
-							if "".join(sl) in li:
-								return True
+							for item in li:
+								if item in "".join(sl):
+									return True
 							sl[stringIndex] = placeholder
 					if mapIndex != -1 and sl[stringIndex] in self.maps[mapIndex]:
 						sl[stringIndex] = self.maps[mapIndex].get(sl[stringIndex])
