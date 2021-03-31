@@ -49,8 +49,9 @@ class LeetLists:
 		chk = chk.lower()
 		chk = chk.replace(" ","")
 		
-		if chk in li:
-			return True
+		for item in li:
+			if item in chk:
+				return True
 
 		sl = list(chk)
 
