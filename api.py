@@ -27,7 +27,7 @@ def sixtyNine():
 
 @app.route("/leetlists/<string>", methods=["GET"])
 def process(string):
-	string = str(string)
+	string = str(string).replace("%20", " ")
 	return jsonify(ll.check_string(string, wordlist))
 
 if __name__ == "__main__":
