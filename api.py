@@ -22,8 +22,8 @@ s.close()
 del s
 
 @app.route("/")
-def sixtyNine():
-	return "Sex."
+def defaultRoute():
+	return "Test."
 
 @app.route("/leetlists/<string>", methods=["GET"])
 def process(string):
